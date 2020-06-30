@@ -1,0 +1,35 @@
+@layout('base')
+
+@section('content')
+<div class="d-flex justify-content-between align-items-center">
+  <h1>Books MVC </h1>
+  <a href="/books/create" class="btn btn-primary">Novo Book</a>
+</div>
+<hr>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>#</th>
+      <th>Título</th>
+      <th>Descrição</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    @each(book in books)
+    <tr>
+      <th>{{book.id}}</th>
+      <td>{{book.title}}</td>
+      <td>{{book.description}}</td>
+      <td>
+          <div class="d-flex direction-row">
+            <a href="/books/{{book.id}}"><ion-icon name="eye-outline" class="btn btn-primary"></ion-icon></a>
+            <a href="/books/{{book.id}}/edit"><ion-icon name="create-outline" class="btn btn-warning mx-2"></ion-icon></a>
+            <a href="/books/{{book.id}}/delete"><ion-icon name="close-outline" class="btn btn-danger"></ion-icon></a>
+          </div>
+      </td>
+    </tr>
+    @endeach
+  </tbody>
+</table>
+@endsection

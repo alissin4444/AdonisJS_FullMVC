@@ -1,0 +1,21 @@
+@layout('base')
+
+@section('content')
+<div class="d-flex justify-content-between align-items-center">
+  <h1>Novo Book </h1>
+</div>
+<hr>
+<form method="POST" action="/books">
+  {{ csrfField() }}
+  <div class="form-group">
+    <label for="title">Nome</label>
+    <input type="text" name="title" class="form-control" id="title" aria-describedby="titleHelp" placeholder="Digite o título do seu book" required>
+    <small id="titleHelp" class="form-text text-muted">Um clássico é algo que todos queriam ter lido mas que ninguém quer ler.</small>
+  </div>
+  <div class="form-group">
+    <label for="description">Descrição</label>
+    <textarea name="description" class="form-control" id="description" placeholder="Preencha com a descrição do seu book" required rows="5"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Salvar</button>
+</form>
+@endsection
